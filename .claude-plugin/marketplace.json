@@ -1,0 +1,5 @@
+{
+  "name": "black-hole-theme",
+  "owner": { "name": "kimjione1206" },
+  "plugins": [{ "name": "black-hole", "source": "./" }]
+}

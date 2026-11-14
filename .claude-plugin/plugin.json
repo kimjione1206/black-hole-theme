@@ -1,0 +1,7 @@
+{
+  "name": "black-hole",
+  "version": "1.0.0",
+  "description": "A black hole backdrop behind the chat in the desktop app: a churning disk of gas turning around a black circle on a starry sky, and a small ship that falls in about once a minute. /blackhole turns it on, /blackhole off clears it.",
+  "author": { "name": "kimjione1206" },
+  "license": "MIT"
+}
