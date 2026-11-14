@@ -37,6 +37,15 @@ In the desktop app, where `/plugin` does not run, click + next to the prompt box
 
 It sets the session's backdrop and registers one command, and that is all. It reads nothing from your prompts or your files, stores nothing and sends nothing anywhere.
 
+The plugin is a mod, a small module that Claude Code loads. These are the only calls it makes, all of them Claude Code's own:
+
+- `$.theme.set` when a session starts and when you type `/blackhole`. It hands Claude Code the name of the scene and how much to frost the panels over it. Nothing leaves your machine.
+- `$.theme.clear` when you type `/blackhole off`. It puts the app's own look back.
+- `$.command.register` once per session, to add the `/blackhole` command.
+- `$.ui.resolve` while drawing, to get the app's own `Svg` element.
+
+It hooks three events. `session.start` sets the backdrop. `command.run`, for the `/blackhole` command alone, turns the backdrop on or off and answers with one line. `ui.render` for the backdrop returns the picture. The only thing it reads from you is the word after `/blackhole`, to see whether it is `off`.
+
 The whole picture is one SVG built in `hooks/scene.ts` and animated with CSS. There are no images, no fonts and no scripts in it, and it holds still when your system asks for reduced motion.
 
 It needs a version of Claude Desktop that draws a plugin's backdrop behind the chat. A terminal session shows nothing.
